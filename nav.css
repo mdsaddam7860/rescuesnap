@@ -1,0 +1,414 @@
+/* Navigation Start Here */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,100;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+/* custom scroll bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+header.sticky{
+  position: sticky;
+  background-color: white;
+  transition: all .5s;
+
+}
+header {
+  z-index: 12;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background: transparent;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.05);
+  transition: all 1s;
+
+}
+header.sticky .logo{
+  color: black;
+  transition: all .5s;
+}
+.logo {
+  text-decoration: none;
+  font-size: 1.5rem;
+  /* color: black; */
+  color: #e1e0e0;
+  font-weight: bold;
+  letter-spacing: 0.1em;
+  transition: all .5s;
+
+}
+.group {
+  display: flex;
+  align-items: center;
+}
+header ul {
+  position: relative;
+  display: flex;
+  gap: 30px;
+}
+header ul li {
+  list-style: none;
+}
+header.sticky ul li a{
+  color: white;
+
+}
+header.sticky ul li a{
+  color: black;
+}
+
+header.open ul li a {
+  color: white;
+}
+header ul li a {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  font-size: 1em;
+  color: black;
+  /* color: #e1e0e0; */
+  text-transform: uppercase;
+}
+header ul li a::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  background: #333;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: right;
+}
+
+header ul li a:focus ~::before,
+header ul li a:active ~::before,
+header ul li a:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+header .search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5em;
+  z-index: 10;
+  cursor: pointer;
+  visibility: hidden;
+}
+.searchBox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: -100%;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  padding: 0 30px;
+  transition: all 0.5s ease-in-out;
+}
+.searchBox.active {
+  right: 0;
+}
+
+.searchBox input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 1.25em;
+  color: #333;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.searchBtn {
+  position: relative;
+  left: 30px;
+  top: 2.5px;
+  transition: 0.5s;
+}
+.closeBtn {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  scale: 0;
+}
+
+.searchBtn.active {
+  left: 0;
+}
+.closeBtn.active {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  scale: 1;
+}
+.menuToggle {
+  position: relative;
+  display: none;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+  .searchBtn {
+    left: 0;
+  }
+  .menuToggle {
+    position: absolute;
+    display: block;
+    font-size: 2em;
+    cursor: pointer;
+    z-index: 10;
+    transform: translateX(30px);
+  }
+  header .navigation {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 100%;
+  }
+  header.open .navigation {
+    top: 80px;
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    flex-direction: column;
+    background: black;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 40px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  header.open .navigation li a {
+    font-size: 1.25em;
+  }
+  .hide {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+}
+
+/* Navigation End Here */
+
+
+/* Slider Start Here */
+
+/* *, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+} */
+
+body {
+    /* overflow: hidden; */
+    font-family: Helvetica, Arial, sans-serif;
+  }
+  #mrg{
+    height: 65vh;
+  }
+  .slider {
+    position: relative;
+    height: 50vh;
+  }
+  .slider__slides {
+    z-index: 1;
+    position: relative;
+    height: 100%;
+  }
+  .slider__control {
+    z-index: 2;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    width: 60px;
+    height: 60px;
+    margin-left: -30px;
+    margin-top: -30px;
+    border-radius: 50%;
+    background: #fff;
+    transition: background-color 0.3s;
+    cursor: pointer;
+  }
+  .slider__control--right {
+    left: 95%;
+  }
+  .slider__control:hover {
+    background-color: #2da6ff;
+  }
+  .slider__control-line {
+    position: absolute;
+    left: 23px;
+    top: 50%;
+    width: 3px;
+    height: 14px;
+    transform-origin: 50% 0;
+    transform: rotate(-45deg);
+  }
+  .slider__control-line:nth-child(2) {
+    transform: translateY(1px) rotate(-135deg);
+  }
+  .slider__control--right .slider__control-line {
+    left: 37px;
+    transform-origin: 1px 0;
+    transform: rotate(45deg);
+  }
+  .slider__control--right .slider__control-line:nth-child(2) {
+    transform: translateY(1px) rotate(135deg);
+  }
+  .slider__control-line:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e2e2e2;
+    transition: background-color 0.3s;
+  }
+  .slider__control:hover .slider__control-line:after {
+    background-color: #fff;
+  }
+  .slider__control.a--rotation .slider__control-line:after {
+    animation: arrowLineRotation 0.49s;
+  }
+  .slider__control.a--rotation .slider__control-line:nth-child(1):after {
+    animation: arrowLineRotationRev 0.49s;
+  }
+  
+  @keyframes arrowLineRotation {
+    to {
+      transform: rotate(180deg);
+    }
+  }
+  @keyframes arrowLineRotationRev {
+    to {
+      transform: rotate(-180deg);
+    }
+  }
+  .slide {
+    overflow: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150vmax;
+    height: 150vmax;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: -webkit-clip-path 0s 0.91s;
+    transition: clip-path 0s 0.91s;
+    transition: clip-path 0s 0.91s, -webkit-clip-path 0s 0.91s;
+    -webkit-clip-path: circle(30px at 120vw 50%);
+            clip-path: circle(30px at 120vw 50%);
+  }
+  .slide.s--prev {
+    -webkit-clip-path: circle(30px at 30vw 50%);
+            clip-path: circle(30px at 30vw 50%);
+  }
+  .slide.s--active {
+    z-index: 1;
+    transition: -webkit-clip-path 1.3s;
+    transition: clip-path 1.3s;
+    transition: clip-path 1.3s, -webkit-clip-path 1.3s;
+    -webkit-clip-path: circle(120vmax at 120vw 50%);
+            clip-path: circle(120vmax at 120vw 50%);
+  }
+  .slide.s--active.s--active-prev {
+    -webkit-clip-path: circle(120vmax at 30vw 50%);
+            clip-path: circle(120vmax at 30vw 50%);
+  }
+  .slide:nth-child(1) .slide__inner {
+    background-image: url("/img/10938.jpg");
+  }
+  .slide:nth-child(2) .slide__inner {
+    background-image: url("/img/13561.jpg");
+  }
+  .slide:nth-child(3) .slide__inner {
+    background-image: url("/img/145-1300x650.jpg");
+  }
+  .slide:nth-child(4) .slide__inner {
+    background-image: url("/img/1493.jpg");
+  }
+  .slide:nth-child(5) .slide__inner {
+    background-image: url("/img/153.jpg");
+  }
+  .slide__inner {
+    position: absolute;
+      left: 50%;
+      top: 54%;
+      width: 100vw;
+      height: 102vh;
+      margin-left: -50vw;
+      margin-top: -50vh;
+      background-size: cover;
+      background-position: center center;
+  }
+  .slide__inner:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .slide__content {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    margin-left: -30px;
+    margin-top: 48px;
+    max-width: 480px;
+    color: #fff;
+  }
+  
+  .slide__heading {
+    margin-bottom: 20px;
+    font-size: 60px;
+  }
+  .slide__text {
+    font-size: 25px;
+  }
+  .slide__text a {
+    color: inherit;
+  }
+  @media (max-width: 455px) {
+    .slide__heading {
+      font-size: 30px;
+    }
+  
+  }
+    /*# sourceMappingURL=main.css.map */
+  
+  /* Slider end here */
